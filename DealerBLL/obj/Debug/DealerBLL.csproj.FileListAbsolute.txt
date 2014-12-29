@@ -1,0 +1,5 @@
+C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\DealerBLL\bin\Debug\DealerBLL.dll
+C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\DealerBLL\bin\Debug\DealerBLL.pdb
+C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\DealerBLL\obj\Debug\DealerBLL.csprojResolveAssemblyReference.cache
+C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\DealerBLL\obj\Debug\DealerBLL.dll
+C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\DealerBLL\obj\Debug\DealerBLL.pdb
