@@ -1,5 +1,5 @@
 // CREATED BY: Nathan Townsend
-// CREATED DATE: 12/29/2014
+// CREATED DATE: 12/30/2014
 // DO NOT MODIFY THIS CODE
 // CHANGES WILL BE LOST WHEN THE GENERATOR IS RUN AGAIN
 // GENERATION TOOL: Dalapi Code Generator (DalapiPro.com)
@@ -72,6 +72,11 @@ namespace DealerDAL.Service
         /// </summary>
         WebsiteUpdateLogDO[] GetByPK(Int32 WebsiteUpdateId,
  Int32 InstallSequence);
+
+/// <summary>
+        /// Selects WebsiteUpdateLog records by WebsiteUpdateLog_WebsiteUpdateId
+        /// </summary>
+        WebsiteUpdateLogDO[] GetByWebsiteUpdateLog_WebsiteUpdateId(Int32 WebsiteUpdateId);
 
 
 

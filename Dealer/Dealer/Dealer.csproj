@@ -187,7 +187,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Core\WebsiteUpdater.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -221,6 +220,8 @@
     <Content Include="Scripts\foundation\jquery.cookie.js" />
     <Content Include="Updates\14122901\Description.txt" />
     <Content Include="Updates\14122902\Description.txt" />
+    <Content Include="Updates\14122902\Scripts\01.txt" />
+    <Content Include="Updates\14122902\Scripts\02.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -239,8 +240,10 @@
     <Folder Include="Filters\" />
     <Folder Include="Images\" />
     <Folder Include="Models\" />
+    <Folder Include="Updates\14122901\Scripts\" />
     <Folder Include="Updates\14122902\Files\bin\" />
     <Folder Include="Updates\14122902\Files\Views\Home\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -260,7 +263,7 @@
     <Content Include="Updates\14122901\Files\Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Restore.cshtml" />
     <Content Include="Views\Shared\_updateAvailable.cshtml" />
-    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Home\UpdateHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DealerBLL\DealerBLL.csproj">

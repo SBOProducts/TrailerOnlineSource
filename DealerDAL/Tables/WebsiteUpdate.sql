@@ -1,12 +1,10 @@
-/****** Object:  Table [dbo].[WebsiteUpdate]    Script Date: 12/29/2014 11:45:46 PM ******/
+/****** Object:  Table [dbo].[WebsiteUpdate]    Script Date: 12/30/2014 10:47:41 AM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 CREATE TABLE [dbo].[WebsiteUpdate](
 	[WebsiteUpdateId] [int] IDENTITY(1,1) NOT NULL,
 	[VersionInstalled] [int] NOT NULL,
 	[UpdateDescription] [varchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-	[PreviousVersion] [int] NOT NULL,
-	[InstalledByUserName] [varchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[InstallDate] [datetime] NOT NULL,
  CONSTRAINT [PK_WebsiteUpdate] PRIMARY KEY CLUSTERED 
 (

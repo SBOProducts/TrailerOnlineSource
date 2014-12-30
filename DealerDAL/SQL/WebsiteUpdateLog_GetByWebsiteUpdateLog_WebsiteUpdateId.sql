@@ -9,17 +9,14 @@
 USE [DB_99F0A1_DealerDB]
 
 -- Drop the procedure if it exists.
-If OBJECT_ID('[dbo].[WebsiteUpdateLog_Insert]') IS NOT NULL
+If OBJECT_ID('[dbo].[WebsiteUpdateLog_GetByWebsiteUpdateLog_WebsiteUpdateId]') IS NOT NULL
     BEGIN
-    DROP PROCEDURE [dbo].[WebsiteUpdateLog_Insert]
+    DROP PROCEDURE [dbo].[WebsiteUpdateLog_GetByWebsiteUpdateLog_WebsiteUpdateId]
     END
 GO
 
-CREATE PROCEDURE [dbo].[WebsiteUpdateLog_Insert]
-    @WebsiteUpdateId Int,
-    @InstallSequence Int,
-    @ActionType VarChar(50),
-    @Message VarChar(500)
+CREATE PROCEDURE [dbo].[WebsiteUpdateLog_GetByWebsiteUpdateLog_WebsiteUpdateId]
+    @WebsiteUpdateId Int
 AS
 
 BEGIN
@@ -27,20 +24,13 @@ BEGIN
     -- interfering with SELECT statements.
     SET NOCOUNT ON;
 
-    INSERT INTO [dbo].[WebsiteUpdateLog]
-	(
+    SELECT
         [WebsiteUpdateId],
         [InstallSequence],
         [ActionType],
         [Message]
-    ) VALUES (
-        @WebsiteUpdateId,
-        @InstallSequence,
-        @ActionType,
-        @Message
-	)
-
-	-- return the new identity value
-	SELECT SCOPE_IDENTITY()
+    FROM [dbo].[WebsiteUpdateLog]
+    WHERE 
+        [WebsiteUpdateId] = @WebsiteUpdateId
 
 END

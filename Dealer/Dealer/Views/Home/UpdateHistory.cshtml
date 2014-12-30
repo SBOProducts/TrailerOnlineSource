@@ -1,0 +1,45 @@
+﻿@using DealerDAL.DO
+@using DealerBLL.BusinessObjects
+@model IEnumerable<WebsiteUpdateInfoBO> 
+@{
+    ViewBag.Title = "Website Updates";
+}
+
+<div class="row">
+    <div class="large-12 columns">
+        <h2>Website Update History</h2>
+        
+        @foreach (WebsiteUpdateInfoBO update in Model)
+        {
+            <h3>Update Version @update.UpdateSummary.VersionInstalled</h3>
+            
+            <fieldset>
+                <legend>Description</legend>
+                @Html.Raw(update.UpdateSummary.UpdateDescription)
+            </fieldset>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sequence</th>
+                        <th>Action</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (WebsiteUpdateLogDO entry in update.UpdateLog)
+                {
+                    <tr>
+                        <td>@entry.InstallSequence</td>
+                        <td>@entry.ActionType</td>
+                        <td>@entry.Message</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+
+        }
+
+    </div>
+</div>
+

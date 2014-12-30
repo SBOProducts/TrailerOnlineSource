@@ -172,3 +172,5 @@ C:\Users\Nathan\Documents\GitHub\TrailerOnlineSource\Dealer\Dealer\bin\zh-Hant\S
 C:\Users\Nathan\Documents\GitHub\TrailerOnlineSource\Dealer\Dealer\obj\Debug\Dealer.csprojResolveAssemblyReference.cache
 C:\Users\Nathan\Documents\GitHub\TrailerOnlineSource\Dealer\Dealer\obj\Debug\Dealer.dll
 C:\Users\Nathan\Documents\GitHub\TrailerOnlineSource\Dealer\Dealer\obj\Debug\Dealer.pdb
+C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\Dealer\Dealer\bin\log4net.dll
+C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\Dealer\Dealer\bin\log4net.xml

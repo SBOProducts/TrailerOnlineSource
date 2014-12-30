@@ -10,9 +10,33 @@ using DealerDAL.Service;
 using log4net;
 using System.Xml;
 using System.Text.RegularExpressions;
+using System.Data.SqlClient;
 
 namespace Dealer.Core
 {
+
+    /// <summary>
+    /// The status of an updat
+    /// </summary>
+    public enum UpdateStatus
+    {
+        Succeeded,
+        Failed
+    }
+
+    /// <summary>
+    /// Contains the results from an update operation
+    /// </summary>
+    public class UpdateResult
+    {
+
+        /// <summary>
+        /// The status of the update
+        /// </summary>
+        public UpdateStatus Status { get; set; }
+
+
+    }
 
     
     /// <summary>
@@ -99,23 +123,20 @@ namespace Dealer.Core
         /// </summary>
         public void RunUpdates()
         {
-            
-            int newVersion = CurrentVersion;
+            int installedVersion = CurrentVersion;
+
             foreach (UpdatePackage package in AvailableUpdates)
             {
-                bool updateWasSuccessful = RunUpdate(package, newVersion);
+                UpdateResult result = RunUpdate(package);
                 
-                // if the update failed then don't proceed to the next package (if one exists)
-                if (!updateWasSuccessful)    
+                if (result.Status == UpdateStatus.Failed)    
                     break;
 
-                // record the version of the successful update so it can be updated in the config
-                newVersion = package.Version; 
+                installedVersion = package.Version; 
             }
 
-            // if a new version was successfully installed the update the web.config with the new version
-            if (newVersion != CurrentVersion)
-                UpdateConfiguredVersion(newVersion);
+            if (installedVersion != CurrentVersion)
+                UpdateConfiguredVersion(installedVersion);
         }
 
 
@@ -153,40 +174,67 @@ namespace Dealer.Core
         /// </summary>
         /// <param name="package"></param>
         /// <returns></returns>
-        bool RunUpdate(UpdatePackage package, int PreviousVersion)
+        UpdateResult RunUpdate(UpdatePackage package)
         {
             using (DalapiTransaction transaction = new DalapiTransaction("dbo"))
             {
-
                 try
                 {
-                    // create a record of the update
-                    WebsiteUpdateService updateService = new WebsiteUpdateService("dbo");
-                    WebsiteUpdateDO updateData = new WebsiteUpdateDO() { InstallDate = DateTime.Now, InstalledByUserName = _userName, PreviousVersion = PreviousVersion, UpdateDescription = package.Description, VersionInstalled = package.Version };
-                    updateData.WebsiteUpdateId = updateService.Create(updateData, transaction);
+                    // record the updata operation
+                    WebsiteUpdateDO updateData = CreateUpdateSummary(transaction, package);
 
                     // run each action
                     for(int i = 0; i<package.UpdateActions.Count; i++)
                     {
                         IWebsiteUpdateAction action = package.UpdateActions[i];
-                        action.MakeUpdate();
-                        
-                        WebsiteUpdateLogService logService = new WebsiteUpdateLogService("dbo");
-                        WebsiteUpdateLogDO logData = new WebsiteUpdateLogDO() { ActionType = action.GetType().ToString(), InstallSequence = i, Message = action.Message, WebsiteUpdateId = updateData.WebsiteUpdateId };
-                        logService.Create(logData, transaction);
+                        action.MakeUpdate(transaction);
+
+                        // record the update action
+                        LogUpdateActivity(transaction, action, updateData, i);
                     }
 
+                    // once all updates have run commit the transaction
                     transaction.Commit();
-                    return true;
+                    return new UpdateResult() { Status = UpdateStatus.Succeeded };
                 }
                 catch (Exception ex)
                 {
                     RollbackUpdates(package);
                     logger.Error("Run Update failed for version " + package.Version.ToString(), ex);
                     transaction.Rollback();
-                    return false;
+                    return new UpdateResult() { Status = UpdateStatus.Failed };
                 }
             }
+        }
+
+
+        /// <summary>
+        /// Creates a summary record of the update in the dababase
+        /// </summary>
+        /// <param name="transaction"></param>
+        /// <returns></returns>
+        WebsiteUpdateDO CreateUpdateSummary(DalapiTransaction transaction, UpdatePackage package)
+        {
+            // create a record of the update
+            IWebsiteUpdateService updateService = new WebsiteUpdateService("dbo");
+            WebsiteUpdateDO updateData = new WebsiteUpdateDO() { InstallDate = DateTime.Now, UpdateDescription = package.Description, VersionInstalled = package.Version };
+            updateData.WebsiteUpdateId = updateService.Create(updateData, transaction);
+            return updateData;
+        }
+
+
+        /// <summary>
+        /// Creates a log entry for the updata action
+        /// </summary>
+        /// <param name="transaction"></param>
+        /// <param name="action"></param>
+        /// <param name="updateData"></param>
+        void LogUpdateActivity(DalapiTransaction transaction, IWebsiteUpdateAction action, WebsiteUpdateDO updateData, int Sequence)
+        {
+            // add a log entry for the action
+            IWebsiteUpdateLogService logService = new WebsiteUpdateLogService("dbo");
+            WebsiteUpdateLogDO logData = new WebsiteUpdateLogDO() { ActionType = action.GetType().ToString(), InstallSequence = Sequence, Message = action.Message, WebsiteUpdateId = updateData.WebsiteUpdateId };
+            logService.Create(logData, transaction);
         }
 
 
@@ -205,7 +253,7 @@ namespace Dealer.Core
             
         }
 
-
+        /*
         /// <summary>
         /// Restores a package
         /// </summary>
@@ -221,7 +269,7 @@ namespace Dealer.Core
 
             UpdateConfiguredVersion(Version);
         }
-        
+        */
     }
 
 
@@ -280,7 +328,7 @@ namespace Dealer.Core
         /// A list of the actions this update provides
         /// </summary>
         public List<IWebsiteUpdateAction> UpdateActions { get { return _updates; } }
-       
+
 
         #region Load Updates
 
@@ -291,6 +339,8 @@ namespace Dealer.Core
         {
             string fileFolder = Path.Combine(_packagePath, "Files");
             LoadFileUpdates(fileFolder);
+
+            LoadSqlUpdates();
         }
 
 
@@ -324,14 +374,101 @@ namespace Dealer.Core
             }
         }
 
+
+        /// <summary>
+        /// Loads the database updates to be performed
+        /// </summary>
+        void LoadSqlUpdates()
+        {
+            string scriptsFolder = Path.Combine(_packagePath, "Scripts");
+            foreach (string file in Directory.GetFiles(scriptsFolder))
+            {
+                IWebsiteUpdateAction update = new SqlScriptUpdate(file);
+                _updates.Add(update);
+            }
+        }
+
         #endregion
 
     }
 
 
+    /// <summary>
+    /// Performs an update to the database
+    /// </summary>
+    public class SqlScriptUpdate : IWebsiteUpdateAction
+    {
+        private ILog logger = LogManager.GetLogger(typeof(SqlScriptUpdate));
+        string _scriptFilePath;
+
+        public SqlScriptUpdate(string ScriptFilePath)
+        {
+            _scriptFilePath = ScriptFilePath;
+        }
+
+        /// <summary>
+        /// The contents of the sql query
+        /// </summary>
+        public string SqlQuery { get { return File.ReadAllText(ScriptFilePath); } }
 
 
+        /// <summary>
+        /// Make the update to the database
+        /// </summary>
+        /// <param name="transaction"></param>
+        public void MakeUpdate(DalapiTransaction transaction)
+        {
+            try
+            {
+                HasUpdateBeenRun = true;
+                using (SqlCommand cmd = new SqlCommand(SqlQuery, transaction.Connection))
+                {
+                    cmd.Transaction = transaction.Transaction;
+                    cmd.ExecuteNonQuery();
+                    Message = "Database update succeeded";
+                    Successful = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Database update failed on script file " + ScriptFilePath, ex);
+                Message = "Database update failed";
+                Successful = false;
+                throw ex;
+            }
+        }
+
+
+        public void UndoUpdate()
+        {
+            
+        }
+
+        /// <summary>
+        /// The location of the script file 
+        /// </summary>
+        public string ScriptFilePath { get { return _scriptFilePath; } }
+
+
+        /// <summary>
+        /// If the update was successful
+        /// </summary>
+        public bool Successful { get; set; }
+
+
+        /// <summary>
+        /// A message associated with the update
+        /// </summary>
+        public string Message { get; set; }
+
+
+        /// <summary>
+        /// If the update has been run yet
+        /// </summary>
+        public bool HasUpdateBeenRun { get; set; }
+    }
     
+
 
     /// <summary>
     /// Performs a folder update to ensure the folder exists
@@ -350,7 +487,7 @@ namespace Dealer.Core
         /// <summary>
         /// Create the folder
         /// </summary>
-        public void MakeUpdate()
+        public void MakeUpdate(DalapiTransaction transaction)
         {
             try
             {
@@ -482,7 +619,7 @@ namespace Dealer.Core
         /// <summary>
         /// Updates the file with the new version
         /// </summary>
-        public void MakeUpdate()
+        public void MakeUpdate(DalapiTransaction transaction)
         {
             try
             {
@@ -573,7 +710,7 @@ namespace Dealer.Core
     /// </summary>
     public interface IWebsiteUpdateAction
     {
-        void MakeUpdate();
+        void MakeUpdate(DalapiTransaction transaction);
 
         void UndoUpdate();
 

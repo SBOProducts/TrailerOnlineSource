@@ -1,5 +1,5 @@
 // CREATED BY: Nathan Townsend
-// CREATED DATE: 12/29/2014
+// CREATED DATE: 12/30/2014
 // DO NOT MODIFY THIS CODE
 // CHANGES WILL BE LOST WHEN THE GENERATOR IS RUN AGAIN
 // GENERATION TOOL: Dalapi Code Generator (DalapiPro.com)
@@ -39,21 +39,15 @@ namespace DealerDAL.DAL
         {
             SqlParameter _VersionInstalled = new SqlParameter("VersionInstalled", SqlDbType.Int);
             SqlParameter _UpdateDescription = new SqlParameter("UpdateDescription", SqlDbType.VarChar);
-            SqlParameter _PreviousVersion = new SqlParameter("PreviousVersion", SqlDbType.Int);
-            SqlParameter _InstalledByUserName = new SqlParameter("InstalledByUserName", SqlDbType.VarChar);
             SqlParameter _InstallDate = new SqlParameter("InstallDate", SqlDbType.DateTime);
             
             _VersionInstalled.Value = DO.VersionInstalled;
             _UpdateDescription.Value = DO.UpdateDescription;
-            _PreviousVersion.Value = DO.PreviousVersion;
-            _InstalledByUserName.Value = DO.InstalledByUserName;
             _InstallDate.Value = DO.InstallDate;
             
             SqlParameter[] _params = new SqlParameter[] {
                 _VersionInstalled,
                 _UpdateDescription,
-                _PreviousVersion,
-                _InstalledByUserName,
                 _InstallDate
             };
 
@@ -81,23 +75,17 @@ namespace DealerDAL.DAL
             SqlParameter _WebsiteUpdateId = new SqlParameter("WebsiteUpdateId", SqlDbType.Int);
             SqlParameter _VersionInstalled = new SqlParameter("VersionInstalled", SqlDbType.Int);
             SqlParameter _UpdateDescription = new SqlParameter("UpdateDescription", SqlDbType.VarChar);
-            SqlParameter _PreviousVersion = new SqlParameter("PreviousVersion", SqlDbType.Int);
-            SqlParameter _InstalledByUserName = new SqlParameter("InstalledByUserName", SqlDbType.VarChar);
             SqlParameter _InstallDate = new SqlParameter("InstallDate", SqlDbType.DateTime);
             
             _WebsiteUpdateId.Value = DO.WebsiteUpdateId;
             _VersionInstalled.Value = DO.VersionInstalled;
             _UpdateDescription.Value = DO.UpdateDescription;
-            _PreviousVersion.Value = DO.PreviousVersion;
-            _InstalledByUserName.Value = DO.InstalledByUserName;
             _InstallDate.Value = DO.InstallDate;
             
             SqlParameter[] _params = new SqlParameter[] {
                 _WebsiteUpdateId,
                 _VersionInstalled,
                 _UpdateDescription,
-                _PreviousVersion,
-                _InstalledByUserName,
                 _InstallDate
             };
 
@@ -153,8 +141,6 @@ namespace DealerDAL.DAL
                 obj.WebsiteUpdateId = sr.GetInt32(sr.GetOrdinal("WebsiteUpdateId"));
                 obj.VersionInstalled = sr.GetInt32(sr.GetOrdinal("VersionInstalled"));
                 obj.UpdateDescription = sr.GetString(sr.GetOrdinal("UpdateDescription"));
-                obj.PreviousVersion = sr.GetInt32(sr.GetOrdinal("PreviousVersion"));
-                obj.InstalledByUserName = sr.GetString(sr.GetOrdinal("InstalledByUserName"));
                 obj.InstallDate = sr.GetDateTime(sr.GetOrdinal("InstallDate"));
                 
 
@@ -194,8 +180,6 @@ namespace DealerDAL.DAL
                 obj.WebsiteUpdateId = sr.GetInt32(sr.GetOrdinal("WebsiteUpdateId"));
                 obj.VersionInstalled = sr.GetInt32(sr.GetOrdinal("VersionInstalled"));
                 obj.UpdateDescription = sr.GetString(sr.GetOrdinal("UpdateDescription"));
-                obj.PreviousVersion = sr.GetInt32(sr.GetOrdinal("PreviousVersion"));
-                obj.InstalledByUserName = sr.GetString(sr.GetOrdinal("InstalledByUserName"));
                 obj.InstallDate = sr.GetDateTime(sr.GetOrdinal("InstallDate"));
                 
 

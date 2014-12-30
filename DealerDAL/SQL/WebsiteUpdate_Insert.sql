@@ -1,5 +1,5 @@
 -- CREATED BY: Nathan Townsend
--- CREATED DATE: 12/29/2014
+-- CREATED DATE: 12/30/2014
 -- DO NOT MODIFY THIS CODE
 -- CHANGES WILL BE LOST WHEN THE GENERATOR IS RUN AGAIN
 -- GENERATION TOOL: Dalapi Code Generator (DalapiPro.com)
@@ -18,8 +18,6 @@ GO
 CREATE PROCEDURE [dbo].[WebsiteUpdate_Insert]
     @VersionInstalled Int,
     @UpdateDescription VarChar(MAX),
-    @PreviousVersion Int,
-    @InstalledByUserName VarChar(50),
     @InstallDate DateTime
 AS
 
@@ -32,14 +30,10 @@ BEGIN
 	(
         [VersionInstalled],
         [UpdateDescription],
-        [PreviousVersion],
-        [InstalledByUserName],
         [InstallDate]
     ) VALUES (
         @VersionInstalled,
         @UpdateDescription,
-        @PreviousVersion,
-        @InstalledByUserName,
         @InstallDate
 	)
 

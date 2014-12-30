@@ -1,4 +1,6 @@
 ﻿using Dealer.Core;
+using DealerBLL;
+using DealerBLL.BusinessObjects;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -21,16 +23,14 @@ namespace Dealer.Controllers
         {
             WebsiteUpdater updater = new WebsiteUpdater();
             updater.RunUpdates();
-            return View();
+            return RedirectToAction("UpdateHistory");
         }
 
-        public ActionResult Restore()
+        public ActionResult UpdateHistory()
         {
-            WebsiteUpdater updater = new WebsiteUpdater();
-            updater.RestorePackage(14122901);
-            return View();
+            IEnumerable<WebsiteUpdateInfoBO> model = WebsiteUpdateBLL.GetWebsiteUpdateInfo();
+            return View(model);
         }
-
 
 
     }

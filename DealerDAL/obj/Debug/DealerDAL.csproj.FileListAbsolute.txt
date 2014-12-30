@@ -1,6 +1,5 @@
 C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\DealerDAL\bin\Debug\DealerDAL.dll
 C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\DealerDAL\bin\Debug\DealerDAL.pdb
-C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\DealerDAL\obj\Debug\DealerDAL.csprojResolveAssemblyReference.cache
 C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\DealerDAL\obj\Debug\DealerDAL.dll
 C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\DealerDAL\obj\Debug\DealerDAL.pdb
 C:\Users\Nathan\Documents\GitHub\TrailerOnlineSource\DealerDAL\bin\Debug\DealerDAL.dll

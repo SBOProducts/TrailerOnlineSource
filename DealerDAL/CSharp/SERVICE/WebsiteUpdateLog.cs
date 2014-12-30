@@ -1,5 +1,5 @@
 // CREATED BY: Nathan Townsend
-// CREATED DATE: 12/29/2014
+// CREATED DATE: 12/30/2014
 // DO NOT MODIFY THIS CODE
 // CHANGES WILL BE LOST WHEN THE GENERATOR IS RUN AGAIN
 // GENERATION TOOL: Dalapi Code Generator (DalapiPro.com)
@@ -184,6 +184,42 @@ namespace DealerDAL.Service
 
 
             SafeReader sr = DataCommon.ExecuteSafeReader(String.Format("[{0}].[WebsiteUpdateLog_GetByPK]", pid), _params, pid);
+
+
+            List<WebsiteUpdateLogDO> objs = new List<WebsiteUpdateLogDO>();
+			
+            while(sr.Read())
+            {
+                WebsiteUpdateLogDO obj = new WebsiteUpdateLogDO();
+				
+                obj.WebsiteUpdateId = sr.GetInt32(sr.GetOrdinal("WebsiteUpdateId"));
+                obj.InstallSequence = sr.GetInt32(sr.GetOrdinal("InstallSequence"));
+                obj.ActionType = sr.GetString(sr.GetOrdinal("ActionType"));
+                obj.Message = sr.GetString(sr.GetOrdinal("Message"));
+                
+
+                objs.Add(obj);
+            }
+
+            return objs.ToArray();
+        }
+
+/// <summary>
+        /// Selects WebsiteUpdateLog records by WebsiteUpdateLog_WebsiteUpdateId
+        /// </summary>
+        public WebsiteUpdateLogDO[] GetByWebsiteUpdateLog_WebsiteUpdateId(Int32 WebsiteUpdateId)
+        {
+
+            SqlParameter _WebsiteUpdateId = new SqlParameter("WebsiteUpdateId", SqlDbType.Int);
+			
+            _WebsiteUpdateId.Value = WebsiteUpdateId;
+			
+            SqlParameter[] _params = new SqlParameter[] {
+                _WebsiteUpdateId
+            };
+
+
+            SafeReader sr = DataCommon.ExecuteSafeReader(String.Format("[{0}].[WebsiteUpdateLog_GetByWebsiteUpdateLog_WebsiteUpdateId]", pid), _params, pid);
 
 
             List<WebsiteUpdateLogDO> objs = new List<WebsiteUpdateLogDO>();
