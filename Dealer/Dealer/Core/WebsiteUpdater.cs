@@ -128,8 +128,8 @@ namespace Dealer.Core
             foreach (UpdatePackage package in AvailableUpdates)
             {
                 UpdateResult result = RunUpdate(package);
-                
-                if (result.Status == UpdateStatus.Failed)    
+
+                if (result.Status == UpdateStatus.Failed)
                     break;
 
                 installedVersion = package.Version; 

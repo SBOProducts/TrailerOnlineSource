@@ -187,6 +187,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\WebsiteUpdatesController.cs" />
     <Compile Include="Core\WebsiteUpdater.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -219,9 +220,6 @@
     <Content Include="Scripts\foundation\foundation.topbar.js" />
     <Content Include="Scripts\foundation\jquery.cookie.js" />
     <Content Include="Updates\14122901\Description.txt" />
-    <Content Include="Updates\14122902\Description.txt" />
-    <Content Include="Updates\14122902\Scripts\01.txt" />
-    <Content Include="Updates\14122902\Scripts\02.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -241,7 +239,6 @@
     <Folder Include="Images\" />
     <Folder Include="Models\" />
     <Folder Include="Updates\14122901\Scripts\" />
-    <Folder Include="Updates\14122902\Files\bin\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
@@ -258,14 +255,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\TrailerOnlineSource.pubxml" />
-    <Content Include="Views\Home\Update.cshtml" />
+    <Content Include="Views\WebsiteUpdates\Update.cshtml" />
     <Content Include="Updates\14122901\Files\Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Restore.cshtml" />
-    <Content Include="Views\Shared\_updateAvailable.cshtml" />
-    <Content Include="Views\Home\UpdateHistory.cshtml" />
-    <Content Include="Updates\14122902\Files\Views\Home\Index.backup.cshtml" />
-    <Content Include="Updates\14122902\Files\Views\Home\Index.cshtml" />
-    <Content Include="Updates\14122902\Files\Views\Test\Index.cshtml" />
+    <Content Include="Views\WebsiteUpdates\UpdateHistory.cshtml" />
+    <Content Include="Views\WebsiteUpdates\UpdateAvailable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DealerBLL\DealerBLL.csproj">
