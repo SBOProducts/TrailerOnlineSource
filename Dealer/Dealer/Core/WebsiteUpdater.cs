@@ -199,8 +199,8 @@ namespace Dealer.Core
                 }
                 catch (Exception ex)
                 {
-                    RollbackUpdates(package);
                     logger.Error("Run Update failed for version " + package.Version.ToString(), ex);
+                    RollbackUpdates(package);
                     transaction.Rollback();
                     return new UpdateResult() { Status = UpdateStatus.Failed };
                 }
@@ -244,32 +244,26 @@ namespace Dealer.Core
         /// <param name="package"></param>
         void RollbackUpdates(UpdatePackage package)
         {
+            // roll back file updates first
             foreach (IWebsiteUpdateAction action in package.UpdateActions.Where(p => p.HasUpdateBeenRun == true))
             {
-                action.UndoUpdate();
+                if(action.GetType() == typeof(WebsiteFileUpdate))
+                    action.UndoUpdate();
             }
+
+            // roll back folder updates next (if the folder is rolled back before the file an exception will be thrown)
+            foreach (IWebsiteUpdateAction action in package.UpdateActions.Where(p => p.HasUpdateBeenRun == true))
+            {
+                if (action.GetType() == typeof(WebsiteFolderUpdate))
+                    action.UndoUpdate();
+            }
+
+            // There is no need to rollback SqlScript updates since all changes occur within a transaction that will be rolled back
 
             logger.Warn("Rollback completed for package " + package.Version.ToString());
             
         }
 
-        /*
-        /// <summary>
-        /// Restores a package
-        /// </summary>
-        /// <param name="Version"></param>
-        public void RestorePackage(int Version)
-        {
-            UpdatePackage package = InstalledPackages.Find(p => p.Version == Version);
-
-            foreach (IWebsiteUpdateAction action in package.UpdateActions)
-            {
-                action.UndoUpdate();
-            }
-
-            UpdateConfiguredVersion(Version);
-        }
-        */
     }
 
 
@@ -439,9 +433,10 @@ namespace Dealer.Core
         }
 
 
+        
         public void UndoUpdate()
         {
-            
+            // this is accomplished with the sql transaction, no action needed
         }
 
         /// <summary>
@@ -512,8 +507,15 @@ namespace Dealer.Core
         /// </summary>
         public void UndoUpdate()
         {
-            if (Directory.Exists(TargetFolderPath))
-                Directory.Delete(TargetFolderPath);
+            try
+            {
+                if (Directory.Exists(TargetFolderPath))
+                    Directory.Delete(TargetFolderPath);
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Delete failed for " + TargetFolderPath, ex);
+            }
         }
 
         /// <summary>
@@ -640,7 +642,7 @@ namespace Dealer.Core
                 File.Copy(SourceFilePath, TargetFilePath);
 
                 Successful = true;
-                Message = string.Format("Updated file {0}", Path.GetFileName(SourceFilePath));
+                Message = string.Format("Updated file {0}", TargetFilePath);
 
             }
             catch (Exception ex)

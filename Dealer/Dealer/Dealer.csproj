@@ -242,7 +242,6 @@
     <Folder Include="Models\" />
     <Folder Include="Updates\14122901\Scripts\" />
     <Folder Include="Updates\14122902\Files\bin\" />
-    <Folder Include="Updates\14122902\Files\Views\Home\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +263,9 @@
     <Content Include="Views\Home\Restore.cshtml" />
     <Content Include="Views\Shared\_updateAvailable.cshtml" />
     <Content Include="Views\Home\UpdateHistory.cshtml" />
+    <Content Include="Updates\14122902\Files\Views\Home\Index.backup.cshtml" />
+    <Content Include="Updates\14122902\Files\Views\Home\Index.cshtml" />
+    <Content Include="Updates\14122902\Files\Views\Test\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DealerBLL\DealerBLL.csproj">
