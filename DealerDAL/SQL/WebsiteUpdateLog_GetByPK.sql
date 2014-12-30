@@ -28,9 +28,8 @@ BEGIN
     SELECT
         [WebsiteUpdateId],
         [InstallSequence],
-        [InstallAction],
-        [SourceFilePath],
-        [DestinationFilePath]
+        [ActionType],
+        [Message]
     FROM [dbo].[WebsiteUpdateLog]
     WHERE 
         [WebsiteUpdateId] = @WebsiteUpdateId AND

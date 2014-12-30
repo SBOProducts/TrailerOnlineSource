@@ -27,9 +27,8 @@ BEGIN
     SELECT
         [WebsiteUpdateId],
         [InstallSequence],
-        [InstallAction],
-        [SourceFilePath],
-        [DestinationFilePath]
+        [ActionType],
+        [Message]
     FROM [dbo].[WebsiteUpdateLog]
 
 END

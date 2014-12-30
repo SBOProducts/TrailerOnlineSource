@@ -18,9 +18,8 @@ namespace DealerDAL.DO
 
         public virtual Int32 WebsiteUpdateId {get; set;}
         public virtual Int32 InstallSequence {get; set;}
-        public virtual String InstallAction {get; set;}
-        public virtual String SourceFilePath {get; set;}
-        public virtual String DestinationFilePath {get; set;}
+        public virtual String ActionType {get; set;}
+        public virtual String Message {get; set;}
 
     }
 }

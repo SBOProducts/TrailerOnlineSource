@@ -9,12 +9,14 @@
     <title>@ViewBag.Title - Welcome to Foundation</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+    @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/foundation/css")
 
     @RenderSection("head", required: false)
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    @Html.Partial("_updateAvailable")
     @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")

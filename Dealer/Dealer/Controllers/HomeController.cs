@@ -1,4 +1,5 @@
 ﻿using Dealer.Core;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace Dealer.Controllers
 {
     public class HomeController : Controller
     {
+        private static ILog logger = LogManager.GetLogger(typeof(HomeController));
+
         public ActionResult Index()
         {
             return View();
@@ -16,8 +19,15 @@ namespace Dealer.Controllers
 
         public ActionResult Update()
         {
-            SelfUpdate updater = new SelfUpdate(User.Identity.Name);
+            WebsiteUpdater updater = new WebsiteUpdater();
+            updater.RunUpdates();
+            return View();
+        }
 
+        public ActionResult Restore()
+        {
+            WebsiteUpdater updater = new WebsiteUpdater();
+            updater.RestorePackage(14122901);
             return View();
         }
 

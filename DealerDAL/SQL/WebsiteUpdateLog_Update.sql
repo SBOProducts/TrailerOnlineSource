@@ -18,9 +18,8 @@ GO
 CREATE PROCEDURE [dbo].[WebsiteUpdateLog_Update]
     @WebsiteUpdateId Int,
     @InstallSequence Int,
-    @InstallAction VarChar(50),
-    @SourceFilePath VarChar(250),
-    @DestinationFilePath VarChar(250)
+    @ActionType VarChar(50),
+    @Message VarChar(500)
 AS
 
 BEGIN
@@ -32,9 +31,8 @@ BEGIN
     SET
         [WebsiteUpdateId] = @WebsiteUpdateId,
         [InstallSequence] = @InstallSequence,
-        [InstallAction] = @InstallAction,
-        [SourceFilePath] = @SourceFilePath,
-        [DestinationFilePath] = @DestinationFilePath
+        [ActionType] = @ActionType,
+        [Message] = @Message
     WHERE
         [WebsiteUpdateId] = @WebsiteUpdateId AND
         [InstallSequence] = @InstallSequence

@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[WebsiteUpdate]    Script Date: 12/29/2014 3:27:07 PM ******/
+/****** Object:  Table [dbo].[WebsiteUpdate]    Script Date: 12/29/2014 11:45:46 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 CREATE TABLE [dbo].[WebsiteUpdate](

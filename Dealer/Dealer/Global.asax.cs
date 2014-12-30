@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,6 +15,8 @@ namespace Dealer
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        private static ILog logger = LogManager.GetLogger(typeof(MvcApplication));
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -23,6 +26,8 @@ namespace Dealer
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
+            log4net.Config.XmlConfigurator.Configure(); 
         }
     }
 }

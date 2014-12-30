@@ -51,22 +51,19 @@ namespace DealerDAL.Service
         {
             SqlParameter _WebsiteUpdateId = new SqlParameter("WebsiteUpdateId", SqlDbType.Int);
             SqlParameter _InstallSequence = new SqlParameter("InstallSequence", SqlDbType.Int);
-            SqlParameter _InstallAction = new SqlParameter("InstallAction", SqlDbType.VarChar);
-            SqlParameter _SourceFilePath = new SqlParameter("SourceFilePath", SqlDbType.VarChar);
-            SqlParameter _DestinationFilePath = new SqlParameter("DestinationFilePath", SqlDbType.VarChar);
+            SqlParameter _ActionType = new SqlParameter("ActionType", SqlDbType.VarChar);
+            SqlParameter _Message = new SqlParameter("Message", SqlDbType.VarChar);
             
             _WebsiteUpdateId.Value = DO.WebsiteUpdateId;
             _InstallSequence.Value = DO.InstallSequence;
-            _InstallAction.Value = DO.InstallAction;
-            _SourceFilePath.Value = DO.SourceFilePath;
-            _DestinationFilePath.Value = DO.DestinationFilePath;
+            _ActionType.Value = DO.ActionType;
+            _Message.Value = DO.Message;
             
             SqlParameter[] _params = new SqlParameter[] {
                 _WebsiteUpdateId,
                 _InstallSequence,
-                _InstallAction,
-                _SourceFilePath,
-                _DestinationFilePath
+                _ActionType,
+                _Message
             };
 
 
@@ -91,22 +88,19 @@ namespace DealerDAL.Service
         {
             SqlParameter _WebsiteUpdateId = new SqlParameter("WebsiteUpdateId", SqlDbType.Int);
             SqlParameter _InstallSequence = new SqlParameter("InstallSequence", SqlDbType.Int);
-            SqlParameter _InstallAction = new SqlParameter("InstallAction", SqlDbType.VarChar);
-            SqlParameter _SourceFilePath = new SqlParameter("SourceFilePath", SqlDbType.VarChar);
-            SqlParameter _DestinationFilePath = new SqlParameter("DestinationFilePath", SqlDbType.VarChar);
+            SqlParameter _ActionType = new SqlParameter("ActionType", SqlDbType.VarChar);
+            SqlParameter _Message = new SqlParameter("Message", SqlDbType.VarChar);
             
             _WebsiteUpdateId.Value = DO.WebsiteUpdateId;
             _InstallSequence.Value = DO.InstallSequence;
-            _InstallAction.Value = DO.InstallAction;
-            _SourceFilePath.Value = DO.SourceFilePath;
-            _DestinationFilePath.Value = DO.DestinationFilePath;
+            _ActionType.Value = DO.ActionType;
+            _Message.Value = DO.Message;
             
             SqlParameter[] _params = new SqlParameter[] {
                 _WebsiteUpdateId,
                 _InstallSequence,
-                _InstallAction,
-                _SourceFilePath,
-                _DestinationFilePath
+                _ActionType,
+                _Message
             };
 
             return DataCommon.ExecuteScalar(String.Format("[{0}].[WebsiteUpdateLog_Update]", pid), _params, pid, Transaction);
@@ -158,9 +152,8 @@ namespace DealerDAL.Service
                 
                 obj.WebsiteUpdateId = sr.GetInt32(sr.GetOrdinal("WebsiteUpdateId"));
                 obj.InstallSequence = sr.GetInt32(sr.GetOrdinal("InstallSequence"));
-                obj.InstallAction = sr.GetString(sr.GetOrdinal("InstallAction"));
-                obj.SourceFilePath = sr.GetString(sr.GetOrdinal("SourceFilePath"));
-                obj.DestinationFilePath = sr.GetString(sr.GetOrdinal("DestinationFilePath"));
+                obj.ActionType = sr.GetString(sr.GetOrdinal("ActionType"));
+                obj.Message = sr.GetString(sr.GetOrdinal("Message"));
                 
 
 
@@ -201,9 +194,8 @@ namespace DealerDAL.Service
 				
                 obj.WebsiteUpdateId = sr.GetInt32(sr.GetOrdinal("WebsiteUpdateId"));
                 obj.InstallSequence = sr.GetInt32(sr.GetOrdinal("InstallSequence"));
-                obj.InstallAction = sr.GetString(sr.GetOrdinal("InstallAction"));
-                obj.SourceFilePath = sr.GetString(sr.GetOrdinal("SourceFilePath"));
-                obj.DestinationFilePath = sr.GetString(sr.GetOrdinal("DestinationFilePath"));
+                obj.ActionType = sr.GetString(sr.GetOrdinal("ActionType"));
+                obj.Message = sr.GetString(sr.GetOrdinal("Message"));
                 
 
                 objs.Add(obj);
