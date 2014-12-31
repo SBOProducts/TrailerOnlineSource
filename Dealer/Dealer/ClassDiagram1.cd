@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Dealer.Core.UpdateResult" Collapsed="true">
+    <Position X="5.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\WebsiteUpdater.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dealer.Core.WebsiteUpdater">
+    <Position X="5.5" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAASAAEAACACAQCAAAAAAAAAAAgBAgAQAIAAAAQCAA=</HashCode>
+      <FileName>Core\WebsiteUpdater.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dealer.Core.UpdatePackage" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAgAAAgBAACAABAAAAAAAgAACAAAAAAAAAgAAA=</HashCode>
+      <FileName>Core\WebsiteUpdater.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dealer.Core.SqlScriptUpdate" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACgAAAAgAAJBAAAAAAACIAIAAAAAA=</HashCode>
+      <FileName>Core\WebsiteUpdater.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Dealer.Core.WebsiteFolderUpdate" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAQAEACgAQAAAAABFAAAAAAAAIAIAAAAAA=</HashCode>
+      <FileName>Core\WebsiteUpdater.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Dealer.Core.WebsiteFileUpdate" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAQQACACgAAAAAAABBAAAAAAAAIAIAAAAAA=</HashCode>
+      <FileName>Core\WebsiteUpdater.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Dealer.Core.IWebsiteUpdateAction" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAABBAAAAAAAAIAIAAAAAA=</HashCode>
+      <FileName>Core\WebsiteUpdater.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Dealer.Core.UpdateStatus" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAIA=</HashCode>
+      <FileName>Core\WebsiteUpdater.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>
