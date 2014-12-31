@@ -219,6 +219,7 @@
     <Content Include="Scripts\foundation\foundation.tooltip.js" />
     <Content Include="Scripts\foundation\foundation.topbar.js" />
     <Content Include="Scripts\foundation\jquery.cookie.js" />
+    <Content Include="Themes\Default\layout.css" />
     <Content Include="Updates\14122901\Description.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -229,7 +230,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\system.css" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Web.config" />
@@ -254,10 +255,10 @@
     <Content Include="App_Readme\Foundation for sites\readme.md" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Properties\PublishProfiles\TrailerOnlineSource.pubxml" />
     <Content Include="Views\WebsiteUpdates\Update.cshtml" />
     <Content Include="Updates\14122901\Files\Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Restore.cshtml" />
     <Content Include="Views\WebsiteUpdates\UpdateHistory.cshtml" />
     <Content Include="Views\WebsiteUpdates\UpdateAvailable.cshtml" />
   </ItemGroup>
