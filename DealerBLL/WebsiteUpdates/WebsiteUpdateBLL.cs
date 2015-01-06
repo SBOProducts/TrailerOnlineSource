@@ -1,4 +1,4 @@
-﻿using DealerBLL.BusinessObjects;
+﻿using DealerBLL.WebsiteUpdates;
 using DealerDAL.DAL;
 using DealerDAL.DO;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DealerBLL
+namespace DealerBLL.WebsiteUpdates
 {
 
 

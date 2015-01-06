@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DealerBLL.BusinessObjects
+namespace DealerBLL.WebsiteUpdates
 {
     public class WebsiteUpdateInfoBO
     {

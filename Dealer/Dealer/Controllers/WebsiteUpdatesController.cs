@@ -1,6 +1,6 @@
 ﻿using Dealer.Core;
 using DealerBLL;
-using DealerBLL.BusinessObjects;
+using DealerBLL.WebsiteUpdates;
 using System;
 using System.Collections.Generic;
 using System.Linq;

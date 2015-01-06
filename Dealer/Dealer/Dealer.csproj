@@ -219,7 +219,7 @@
     <Content Include="Scripts\foundation\foundation.tooltip.js" />
     <Content Include="Scripts\foundation\foundation.topbar.js" />
     <Content Include="Scripts\foundation\jquery.cookie.js" />
-    <Content Include="Themes\Default\layout.css" />
+    <Content Include="Themes\Default\site.css" />
     <Content Include="Updates\14122901\Description.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -237,8 +237,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Filters\" />
-    <Folder Include="Images\" />
+    <Folder Include="Images\Logos\" />
     <Folder Include="Models\" />
+    <Folder Include="Themes\Default\images\" />
     <Folder Include="Updates\14122901\Scripts\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
