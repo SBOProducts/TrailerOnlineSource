@@ -41,13 +41,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSharp\DAL\DataCommon.cs" />
+    <Compile Include="CSharp\DAL\Lookup.cs" />
     <Compile Include="CSharp\DAL\SafeReader.cs" />
     <Compile Include="CSharp\DAL\WebsiteUpdate.cs" />
     <Compile Include="CSharp\DAL\WebsiteUpdateLog.cs" />
+    <Compile Include="CSharp\DO\Lookup.cs" />
     <Compile Include="CSharp\DO\WebsiteUpdate.cs" />
     <Compile Include="CSharp\DO\WebsiteUpdateLog.cs" />
+    <Compile Include="CSharp\SERVICE\ILookup.cs" />
     <Compile Include="CSharp\SERVICE\IWebsiteUpdate.cs" />
     <Compile Include="CSharp\SERVICE\IWebsiteUpdateLog.cs" />
+    <Compile Include="CSharp\SERVICE\Lookup.cs" />
     <Compile Include="CSharp\SERVICE\WebsiteUpdate.cs" />
     <Compile Include="CSharp\SERVICE\WebsiteUpdateLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

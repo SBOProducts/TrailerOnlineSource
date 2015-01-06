@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[WebsiteUpdateLog]    Script Date: 12/30/2014 10:47:42 AM ******/
+/****** Object:  Table [dbo].[WebsiteUpdateLog]    Script Date: 1/6/2015 3:01:04 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 CREATE TABLE [dbo].[WebsiteUpdateLog](
@@ -13,7 +13,7 @@ CREATE TABLE [dbo].[WebsiteUpdateLog](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
-/****** Object:  Index [WebsiteUpdateLog_WebsiteUpdateId]    Script Date: 12/30/2014 10:47:42 AM ******/
+/****** Object:  Index [WebsiteUpdateLog_WebsiteUpdateId]    Script Date: 1/6/2015 3:01:04 PM ******/
 CREATE NONCLUSTERED INDEX [WebsiteUpdateLog_WebsiteUpdateId] ON [dbo].[WebsiteUpdateLog]
 (
 	[WebsiteUpdateId] ASC

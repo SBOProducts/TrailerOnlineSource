@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[Log]    Script Date: 12/30/2014 10:47:39 AM ******/
+/****** Object:  Table [dbo].[Log]    Script Date: 1/6/2015 3:00:57 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 CREATE TABLE [dbo].[Log](

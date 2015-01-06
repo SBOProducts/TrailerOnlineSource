@@ -1,0 +1,30 @@
+/****** Object:  Table [dbo].[Lookup]    Script Date: 1/6/2015 3:00:59 PM ******/
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[Lookup](
+	[LookupId] [int] IDENTITY(1,1) NOT NULL,
+	[Category] [varchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[Name] [varchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[Value] [varchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[Description] [varchar](max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+ CONSTRAINT [PK_Lookup] PRIMARY KEY CLUSTERED 
+(
+	[LookupId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+SET ANSI_PADDING ON
+
+/****** Object:  Index [Lookup_Category]    Script Date: 1/6/2015 3:00:59 PM ******/
+CREATE NONCLUSTERED INDEX [Lookup_Category] ON [dbo].[Lookup]
+(
+	[Category] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+SET ANSI_PADDING ON
+
+/****** Object:  Index [Lookup_Value]    Script Date: 1/6/2015 3:00:59 PM ******/
+CREATE NONCLUSTERED INDEX [Lookup_Value] ON [dbo].[Lookup]
+(
+	[Category] ASC,
+	[Value] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
