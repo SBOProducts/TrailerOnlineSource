@@ -10,7 +10,12 @@ C:\Users\Nathan\Documents\GitHub\TrailerOnlineSource\DealerBLL\bin\Debug\log4net
 C:\Users\Nathan\Documents\GitHub\TrailerOnlineSource\DealerBLL\obj\Debug\DealerBLL.csprojResolveAssemblyReference.cache
 C:\Users\Nathan\Documents\GitHub\TrailerOnlineSource\DealerBLL\obj\Debug\DealerBLL.dll
 C:\Users\Nathan\Documents\GitHub\TrailerOnlineSource\DealerBLL\obj\Debug\DealerBLL.pdb
-C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\DealerBLL\bin\Debug\log4net.dll
-C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\DealerBLL\bin\Debug\log4net.xml
 C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\DealerBLL\bin\Debug\DealerDAL.dll
 C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\DealerBLL\bin\Debug\DealerDAL.pdb
+C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\Code\DealerBLL\bin\Debug\DealerBLL.dll
+C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\Code\DealerBLL\bin\Debug\DealerBLL.pdb
+C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\Code\DealerBLL\bin\Debug\DealerDAL.dll
+C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\Code\DealerBLL\bin\Debug\DealerDAL.pdb
+C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\Code\DealerBLL\obj\Debug\DealerBLL.dll
+C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\Code\DealerBLL\obj\Debug\DealerBLL.pdb
+C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\Code\DealerBLL\obj\Debug\DealerBLL.csprojResolveAssemblyReference.cache

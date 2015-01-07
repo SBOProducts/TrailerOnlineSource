@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DealerBLL.Preferences
 {
-    public class PreferenceManager
+    public class PreferenceManager: IPreferenceManager
     {
 
     }

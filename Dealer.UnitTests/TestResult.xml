@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\Code\Dealer.UnitTests\Dealer.UnitTests.csproj" total="3" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2015-01-07" time="16:18:40">
+  <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.5485" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\Code\Dealer.UnitTests" machine-name="DEQIEM9204" user="CB0290" user-domain="STATE" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Project" name="C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\Code\Dealer.UnitTests\Dealer.UnitTests.csproj" executed="True" result="Failure" success="False" time="0.837" asserts="0">
+    <results>
+      <test-suite type="Assembly" name="C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\Code\Dealer.UnitTests\bin\Debug\Dealer.UnitTests.dll" executed="True" result="Failure" success="False" time="0.814" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Dealer" executed="True" result="Failure" success="False" time="0.814" asserts="0">
+            <results>
+              <test-suite type="Namespace" name="UnitTests" executed="True" result="Failure" success="False" time="0.813" asserts="0">
+                <results>
+                  <test-suite type="Namespace" name="ThemeTests" executed="True" result="Failure" success="False" time="0.813" asserts="0">
+                    <results>
+                      <test-suite type="TestFixture" name="When_using_theme_manager" executed="True" result="Failure" success="False" time="0.800" asserts="0">
+                        <results>
+                          <test-case name="Dealer.UnitTests.ThemeTests.When_using_theme_manager.I_can_get_a_list_of_all_installed_themes" executed="True" result="Success" success="True" time="0.722" asserts="1" />
+                          <test-case name="Dealer.UnitTests.ThemeTests.When_using_theme_manager.I_can_get_count_the_installed_themes" executed="True" result="Failure" success="False" time="0.028" asserts="1">
+                            <failure>
+                              <message><![CDATA[  Expected: 3
+  But was:  0
+]]></message>
+                              <stack-trace><![CDATA[at Dealer.UnitTests.ThemeTests.When_using_theme_manager.I_can_get_count_the_installed_themes() in c:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\Code\Dealer.UnitTests\ThemeTests\When_using_theme_manager.cs:line 62
+]]></stack-trace>
+                            </failure>
+                          </test-case>
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="When_using_theme_Repository" executed="True" result="Inconclusive" success="False" time="0.000" asserts="0" />
+                      <test-suite type="TestFixture" name="WhenUsingThemeMetadataFiles" executed="True" result="Success" success="True" time="0.001" asserts="0">
+                        <results>
+                          <test-case name="Dealer.UnitTests.ThemeTests.WhenUsingThemeMetadataFiles.I_can_read_meatdata_from_a_file" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

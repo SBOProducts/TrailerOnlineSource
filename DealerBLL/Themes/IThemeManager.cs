@@ -8,5 +8,8 @@ namespace DealerBLL.Themes
 {
     public interface IThemeManager
     {
+        int InstalledThemeCount();
+
+        IEnumerable<ThemeMetadata> GetAllInstalledThemes();
     }
 }
