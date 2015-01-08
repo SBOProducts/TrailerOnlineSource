@@ -7,4 +7,3 @@ C:\Users\Nathan\Documents\GitHub\TrailerOnlineSource\DealerDAL\bin\Debug\DealerD
 C:\Users\Nathan\Documents\GitHub\TrailerOnlineSource\DealerDAL\obj\Debug\DealerDAL.csprojResolveAssemblyReference.cache
 C:\Users\Nathan\Documents\GitHub\TrailerOnlineSource\DealerDAL\obj\Debug\DealerDAL.dll
 C:\Users\Nathan\Documents\GitHub\TrailerOnlineSource\DealerDAL\obj\Debug\DealerDAL.pdb
-C:\Users\cb0290\Documents\GitHub\TrailerOnlineSource\DealerDAL\obj\Debug\DealerDAL.csprojResolveAssemblyReference.cache

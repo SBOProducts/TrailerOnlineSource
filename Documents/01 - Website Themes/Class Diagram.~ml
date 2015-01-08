@@ -333,7 +333,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="RulOr02nv0+oOGKTAcYn4AAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="9gzEMlmrdESadXbJ2IqrsQAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">PreferenceBO</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">PreferenceDO</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="bAfOaC66PUSW+u/DdeIhdQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -845,7 +845,7 @@
 <XPD:REF name="Views[3]">2RHpWOx+/kW3XO2IS80gYQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[13]" type="UMLClass" guid="I/TytprDh0ytF1YaLWpAIgAA">
-<XPD:ATTR name="Name" type="string">PreferenceBO</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">PreferenceDO</XPD:ATTR>
 <XPD:REF name="Namespace">ya7YYaFFo02ZI0ksVFv7BgAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">U7zVpF5Yfk6KCef6YNNPoQAA</XPD:REF>
