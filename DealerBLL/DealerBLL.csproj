@@ -42,15 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Preferences\IPreferencesBLL.cs" />
-    <Compile Include="Preferences\PreferencesBLL.cs" />
     <Compile Include="WebsiteUpdates\WebsiteUpdateBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebsiteUpdates\WebsiteUpdateBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="WebsiteThemes\WebsiteThemesDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DealerDAL\DealerDAL.csproj">
